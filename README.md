@@ -1,2 +1,2 @@
-# VRplayground
-Just a repo for me to test out vr dev 
+# CodingPlayground
+Just a repo for me to test out, learn, and play around with any cool technologies
