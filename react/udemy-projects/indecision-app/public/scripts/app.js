@@ -1,48 +1,35 @@
 'use strict';
 
-// Sample react component
-
-
 var appElement = document.getElementById('app');
 
-var app = {
-    title: 'Indecision App',
-    subtitle: 'Put your life in the hands of a computer',
-    options: ['Option 1', 'Option 2']
+var visible = false;
+
+var toggleVisibility = function toggleVisibility() {
+    visible = !visible;
+    render();
 };
 
-var template = React.createElement(
-    'div',
-    null,
-    React.createElement(
-        'h1',
-        null,
-        app.title
-    ),
-    app.subtitle && React.createElement(
-        'p',
-        null,
-        app.subtitle
-    ),
-    React.createElement(
-        'p',
-        null,
-        app.options.length > 0 ? 'Here are your options' : 'Currently you have no options'
-    ),
-    React.createElement(
-        'ol',
+var render = function render() {
+    var template = React.createElement(
+        'div',
         null,
         React.createElement(
-            'li',
+            'h1',
             null,
-            'Item One'
+            'Visibility Toggle'
         ),
         React.createElement(
-            'li',
+            'button',
+            { onClick: toggleVisibility },
+            visible ? 'Hide Details' : 'Show Details'
+        ),
+        visible ? React.createElement(
+            'h5',
             null,
-            'Item Two'
-        )
-    )
-);
+            'Here are some details'
+        ) : false
+    );
+    ReactDOM.render(template, appElement);
+};
 
-ReactDOM.render(template, appElement);
+render();
