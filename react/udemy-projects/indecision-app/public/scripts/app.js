@@ -2,41 +2,13 @@
 
 // Sample react component
 
-var user = {
-    name: 'Zi Gao',
-    location: 'Ottawa',
-    age: 19
-};
 
 var appElement = document.getElementById('app');
 
-// can return undefined to omit a JSX element
-var getLocation = function getLocation(location) {
-    return location ? React.createElement(
-        'p',
-        null,
-        location
-    ) : undefined;
-};
-
-var multiplier = {
-    numbers: [1, 6],
-    constant: 2,
-    performMultiplication: function performMultiplication() {
-        var _this = this;
-
-        return this.numbers.map(function (number) {
-            return number * _this.constant;
-        });
-    }
-};
-
-getLocation = function getLocation(location) {
-    return location ? React.createElement(
-        'p',
-        null,
-        location
-    ) : undefined;
+var app = {
+    title: 'Indecision App',
+    subtitle: 'Put your life in the hands of a computer',
+    options: ['Option 1', 'Option 2']
 };
 
 var template = React.createElement(
@@ -45,18 +17,31 @@ var template = React.createElement(
     React.createElement(
         'h1',
         null,
-        user.name ? user.name : 'Not Signed In'
+        app.title
     ),
-    user.age >= 20 && React.createElement(
+    app.subtitle && React.createElement(
         'p',
         null,
-        user.age
+        app.subtitle
     ),
-    getLocation(user.location),
     React.createElement(
         'p',
         null,
-        multiplier.performMultiplication()
+        app.options.length > 0 ? 'Here are your options' : 'Currently you have no options'
+    ),
+    React.createElement(
+        'ol',
+        null,
+        React.createElement(
+            'li',
+            null,
+            'Item One'
+        ),
+        React.createElement(
+            'li',
+            null,
+            'Item Two'
+        )
     )
 );
 

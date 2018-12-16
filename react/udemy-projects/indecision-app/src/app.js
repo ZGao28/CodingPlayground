@@ -1,53 +1,25 @@
 // Sample react component
 
-let user = {
-    name: 'Zi Gao',
-    location: 'Ottawa',
-    age: 19
-}
+
 
 let appElement = document.getElementById('app');
 
 
-// can return undefined to omit a JSX element
-let getLocation = (location) => {
-    return location ? <p>{location}</p> : undefined;
-};
-
-
-let multiplier = {
-    numbers: [1, 6],
-    constant: 2,
-    performMultiplication(){
-        return this.numbers.map((number)=>number*this.constant);
-    }
-
+const app = {
+    title: 'Indecision App',
+    subtitle: 'Put your life in the hands of a computer',
+    options: ['Option 1', 'Option 2']
 }
 
-getLocation = (location) => location ? <p>{location}</p> : undefined;
-
-
-let template = (
+const template = (
     <div>
-        <h1>
-            {user.name ? user.name : 'Not Signed In'}
-        </h1>
-        {/* 
-            This is how to a comment in JSX :)
-
-            Conditional Rendering -- Use functions, ternary operators, and logical and operators
-            The logical AND (&&) operator is really cool!
-            Returns the second argument in the logic evaluation if true and first argument if false!
-            Boolean values along with 'null' and 'undefined' are completely ignored by JSX and nothing is rendered.
-        */}
-        {user.age >= 20 && <p>{user.age}</p>}
-        {getLocation(user.location)}
-
-        <p>
-        {
-            multiplier.performMultiplication()
-        }
-        </p>
+        <h1>{app.title}</h1>
+        {app.subtitle && <p>{app.subtitle}</p>}
+        <p>{app.options.length > 0 ? 'Here are your options' : 'Currently you have no options'}</p>
+        <ol>
+            <li>Item One</li>
+            <li>Item Two</li>
+        </ol>
     </div>
 );
 
