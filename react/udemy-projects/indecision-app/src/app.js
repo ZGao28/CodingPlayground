@@ -1,11 +1,18 @@
+
+
 class IndecisionApp extends React.Component {
     render(){
+        const appData = {
+            title: 'IndecisionApp',
+            subtitle: 'Put your life in the hands of a computer',
+            options: ['read book', 'clean room']
+        }   
         return(
             <div>
-                <Header></Header>
-                <Action></Action>
-                <Options></Options>
-                <AddOption></AddOption>
+                <Header title={appData.title} subtitle={appData.subtitle}/>
+                <Action/>
+                <Options options={appData.options}/>
+                <AddOption/>
             </div>
         );
     }
@@ -16,8 +23,8 @@ class Header extends React.Component {
     render(){
         return (
             <div>
-                <h1>Indecision App</h1>
-                <h2>Put your life in the hands of a computer</h2>
+                <h1>{this.props.title ? this.props.title : 'No Current Title'}</h1>
+                <h2>{this.props.subtitle ? this.props.subtitle : 'No Current Subtitle'}</h2>
             </div>
         );      
     }
@@ -34,10 +41,21 @@ class Action extends React.Component {
 }
 
 class AddOption extends React.Component {
+    constructor(props){
+        super(props);
+        this.performSubmit = this.performSubmit.bind(this);
+    }
+    performSubmit(e){
+        e.preventDefault();
+        const option = e.target.elements.option.value.trim();
+        if (option){
+            alert(option);
+        }
+    }
     render(){
         return (
             <div>
-                <form>
+                <form onSubmit={this.performSubmit}>
                     <input type='text' name='option'/>
                     <button>Add Option</button>
                 </form>
@@ -50,9 +68,7 @@ class Options extends React.Component {
     render() {
         return (
             <div>
-                <Option></Option>
-                <Option></Option>
-                <Option></Option>
+                {this.props.options.map((option) => <Option key={option} description={option}/>)}
             </div>
         );
     }
@@ -61,11 +77,13 @@ class Options extends React.Component {
 class Option extends React.Component {
     render() {
         return(
-            <p>Option One</p>
+            <p>
+                {this.props.description}
+            </p>
         );
     }
 }
 
 
 
-ReactDOM.render(<IndecisionApp></IndecisionApp>, document.getElementById('app'));
+ReactDOM.render(<IndecisionApp/>, document.getElementById('app'));
