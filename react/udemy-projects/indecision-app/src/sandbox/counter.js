@@ -63,7 +63,9 @@ class Counter extends React.Component {
     }
 
     reset(){
-
+        this.setState({
+            count: 0
+        });
     }
     render(){
         return (
