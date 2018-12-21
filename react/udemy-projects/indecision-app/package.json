@@ -5,11 +5,27 @@
   "main": "index.js",
   "author": "zgao28",
   "license": "MIT",
+  "scripts": {
+    "build": "webpack --watch",
+    "server": "live-server public/",
+    "dev-server": "webpack-dev-server --hot --inline"
+  },
   "dependencies": {
+    "babel": "^6.23.0",
+    "babel-cli": "^6.26.0",
+    "babel-loader": "7",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "jquery": "^3.3.1",
+    "live-server": "^1.2.1",
     "react": "^16.6.3",
-    "react-dom": "^16.6.3"
+    "react-dom": "^16.6.3",
+    "react-modal": "2.2.2",
+    "validator": "^10.9.0",
+    "webpack": "^4.28.1"
+  },
+  "devDependencies": {
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.11"
   }
 }
