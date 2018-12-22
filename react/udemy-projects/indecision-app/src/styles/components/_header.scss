@@ -1,0 +1,19 @@
+@import '../base/base';
+
+.header-div {
+    background-color: rgb(88, 88, 88);
+    width: 100%;
+}
+
+.container {
+    display: block;
+    position: relative;
+    max-width: 600px;
+    margin: auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.header__text{
+    color: $text_color_p;
+}
