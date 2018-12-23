@@ -1,0 +1,10 @@
+@import './base/settings';
+@import './base/base';
+
+.NavLink {
+    margin-right: 10px;
+}
+
+.isActive {
+    color: red;
+}
